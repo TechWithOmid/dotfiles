@@ -19,17 +19,11 @@ Plugin 'nvie/vim-flake8'
 Bundle 'djoshea/vim-autoread'
 " Bundle 'janko-m/vim-test'  - useless with bazel
 Bundle 'kien/ctrlp.vim'
-Bundle 'mfukar/robotframework-vim'
 Bundle 'mitsuhiko/vim-jinja'
 Bundle 'saltstack/salt-vim'
-Bundle 'altercation/vim-colors-solarized'
-Plugin 'mattn/emmet-vim'
-Plugin 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-surround'
 Bundle 'mantiz/vim-plugin-dirsettings'
 Bundle 'junegunn/goyo.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'tpope/vim-rsi'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'pearofducks/ansible-vim'
@@ -157,6 +151,11 @@ nnoremap <leader>h :set hlsearch!<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 nnoremap <leader>d :YcmCompleter GetDoc<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q!<CR>
+nnoremap <leader>wq :wq<CR>
+
+" flake8 shortcut
+autocmd FileType python map <leader> :call flake8#Flake8()<CR>
 
 " AsuncRun setup
 nnoremap <leader>r :AsyncRun -raw python % <CR>
