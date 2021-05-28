@@ -108,10 +108,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/forest/scripts/rofi/launcher.rasi
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -132,7 +132,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+o split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -267,3 +267,7 @@ bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # polybar lounch script
 exec --no-startup-id bash ~/.config/polybar/launch.sh --forest
+
+# shortcut for run telegram
+bindsym $mod+t exec /home/omid/Downloads/Telegram/Telegram ; exec notify-send 'Telegram runing...'
+

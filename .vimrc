@@ -33,6 +33,8 @@ Plugin 'skywind3000/asyncrun.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'jmcomets/vim-pony'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ryanoasis/vim-devicons'
 
 filetype plugin indent on
 syntax on
@@ -124,7 +126,7 @@ set shiftwidth=4
 set tabstop=4
 set hlsearch
 set ruler
-" set mouse=a - uncomment this part if you want to use you mouse
+set mouse=a " uncomment this part if you want to use you mouse
 set autowrite
 set autoread
 set nofoldenable
@@ -152,16 +154,19 @@ if !empty(&viminfo)
 endif
 
 " Shortcuts
+au VimEnter * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 let mapleader = ","
 command Deploy !rsync -av ~/granthub-service/. ipmc-dev11:granthub-service
 command Bash !bash
-nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>h :set hlsearch!<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 nnoremap <leader>d :YcmCompleter GetDoc<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q!<CR>
 nnoremap <leader>wq :wq<CR>
+
+" nerd tree shortcut
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " flake8 shortcut
 autocmd FileType python map <leader> :call flake8#Flake8()<CR>
