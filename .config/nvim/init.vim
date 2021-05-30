@@ -9,7 +9,6 @@ call plug#begin(g:plugged_home)
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 " Better Visual Guide
 Plug 'Yggdroot/indentLine'
@@ -17,10 +16,16 @@ Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
 Plug 'jiangmiao/auto-pairs' " quote and bracket completion
 
+" finder and nerdtree
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
-
+" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'mattn/emmet-vim' "emmet 
 " Plug 'ncm2/ncm2'
 " Plug 'roxma/nvim-yarp'
 " Plug 'ncm2/ncm2-bufword'
@@ -37,6 +42,7 @@ filetype plugin indent on
 " UI configuration
 syntax on
 syntax enable
+set termbidi
 set number
 set relativenumber
 set hidden
@@ -44,6 +50,8 @@ set mouse=a
 set noshowmode
 set noshowmatch
 set nolazyredraw
+set cursorline
+
 " Turn off backup
 set nobackup
 set noswapfile
@@ -67,10 +75,11 @@ endif
 if has("gui_running")
   set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:blocks
 endif
-hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg " override the tilde (~)
+hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg 
 
 " shortcuts
-au VimEnter * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape' " turn capslock to esc key
+inoremap <C-c> <Esc>
+noremap Y "*y
 let mapleader = ","
 
 " vim-autoformat
@@ -140,4 +149,9 @@ nnoremap <C-H> <C-W><C-H>
 
 " html autoclose tag
 autocmd FileType xml,html inoremap </ </<C-x><C-o>
+" emmet config
+let g:user_emmet_leader_key=',' " redefine trigger key
 
+" fuzzy config
+let g:fzf_layout = { 'down': '30%' }
+nnoremap <C-p> :Files<Cr>
