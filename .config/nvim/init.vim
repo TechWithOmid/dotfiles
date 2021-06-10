@@ -10,6 +10,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " Better Visual Guide
 Plug 'Yggdroot/indentLine'
 " syntax check
@@ -67,7 +68,7 @@ set shiftwidth=4
 
 " colorscheme
 let base16colorspace=256
-colorscheme base16-gruvbox-dark-hard
+colorscheme dracula
 set background=dark
 " True Color Support if it's avaiable in terminal
 if has("termguicolors")
@@ -75,7 +76,7 @@ if has("termguicolors")
 endif
 if has("gui_running")
   set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:blocks
-endif
+ endif
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg 
 
 " shortcuts
@@ -134,6 +135,7 @@ command NERDTreeFindAndFocus call NERDTreeFind() | call NERDTreeFocus()
 nnoremap <leader>t :NERDTreeFindAndFocus<CR>
 let NERDTreeIgnore = ['\.pyc$']
 nnoremap <leader>t :NERDTreeToggle<CR>
+let NERDTreeMinimalUI = 1
 
 " tab navigations
 nnoremap td :tabclose<CR>

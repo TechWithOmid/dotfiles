@@ -154,7 +154,6 @@ if !empty(&viminfo)
 endif
 
 " Shortcuts
-au VimEnter * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 let mapleader = ","
 command Deploy !rsync -av ~/granthub-service/. ipmc-dev11:granthub-service
 command Bash !bash
