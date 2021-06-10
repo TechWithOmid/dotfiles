@@ -136,6 +136,8 @@ nnoremap <leader>t :NERDTreeFindAndFocus<CR>
 let NERDTreeIgnore = ['\.pyc$']
 nnoremap <leader>t :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * silent NERDTreeMirror
 
 " tab navigations
 nnoremap td :tabclose<CR>
