@@ -51,6 +51,7 @@ set noshowmode
 set noshowmatch
 set nolazyredraw
 set cursorline
+set clipboard=unnamedplus
 
 " Turn off backup
 set nobackup
