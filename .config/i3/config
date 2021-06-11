@@ -229,7 +229,7 @@ bindsym $mod+r mode "resize"
 #
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper/wallhaven.jpg
+exec_always --no-startup-id feh --bg-fill /home/omid/Pictures/wallpaper/girl_landscape_art_139823_3840x2160.jpg 
 
 # wifi
 exec --no-startup-id nm-applet
