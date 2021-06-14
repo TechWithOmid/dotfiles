@@ -10,7 +10,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
-Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 " Better Visual Guide
 Plug 'Yggdroot/indentLine'
 " syntax check
@@ -51,7 +52,6 @@ set mouse=a
 set noshowmode
 set noshowmatch
 set nolazyredraw
-set cursorline
 set clipboard=unnamedplus
 
 " Turn off backup
@@ -67,9 +67,7 @@ set tabstop=4
 set shiftwidth=4
 
 " colorscheme
-let base16colorspace=256
-colorscheme dracula
-set background=dark
+colorscheme gruvbox
 " True Color Support if it's avaiable in terminal
 if has("termguicolors")
     set termguicolors
@@ -78,6 +76,9 @@ if has("gui_running")
   set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:blocks
  endif
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg 
+
+" make number line darker
+hi LineNr       term=bold cterm=bold ctermfg=2 guifg=Grey guibg=Grey20
 
 " shortcuts
 inoremap <C-c> <Esc>
@@ -90,6 +91,8 @@ noremap <F3> :Autoformat<CR>
 let g:deoplete#enable_at_startup = 1
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
+" toggle colorscheme shortcut
+nnoremap <Leader>o :call Toggle_Colorscheme()<CR>
 
 " NCM2
 " augroup NCM2
@@ -160,3 +163,14 @@ let g:user_emmet_leader_key=',' " redefine trigger key
 " fuzzy config
 let g:fzf_layout = { 'down': '30%' }
 nnoremap <C-p> :Files<Cr>
+
+" add function for toggle between light and dark theme
+function! Toggle_Colorscheme()
+    if &background ==  'dark'
+        set background=light
+        hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg 
+    else
+        set background=dark
+        hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg 
+    endif
+endfunction
