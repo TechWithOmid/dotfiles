@@ -5,6 +5,7 @@ else
 endif
 " Plugins List
 call plug#begin(g:plugged_home)
+
 " UI related
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
@@ -12,8 +13,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 " Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
+
 " Better Visual Guide
 Plug 'Yggdroot/indentLine'
+
 " syntax check
 Plug 'w0rp/ale'
 Plug 'jiangmiao/auto-pairs' " quote and bracket completion
@@ -28,11 +31,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'mattn/emmet-vim' "emmet 
-" Plug 'ncm2/ncm2'
-" Plug 'roxma/nvim-yarp'
-" Plug 'ncm2/ncm2-bufword'
-" Plug 'ncm2/ncm2-path'
-" Plug 'ncm2/ncm2-jedi'
+
 " Formater
 Plug 'Chiel92/vim-autoformat'
 Plug 'davidhalter/jedi-vim' " goto definition
