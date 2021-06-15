@@ -1,3 +1,6 @@
+" signify config file
+source $HOME/.config/nvim/plug-config/signify.vim
+
 if has('win32') || has('win64')
     let g:plugged_home = '~/AppData/Local/nvim/plugged'
 else
@@ -16,6 +19,12 @@ Plug 'morhetz/gruvbox'
 
 " Better Visual Guide
 Plug 'Yggdroot/indentLine'
+
+" git integration
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
 
 " syntax check
 Plug 'w0rp/ale'
@@ -44,6 +53,7 @@ filetype plugin indent on
 syntax on
 syntax enable
 set termbidi
+set hlsearch
 set number
 set relativenumber
 set hidden
@@ -93,34 +103,13 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " toggle colorscheme shortcut
 nnoremap <Leader>o :call Toggle_Colorscheme()<CR>
 
-" NCM2
-" augroup NCM2
-"     autocmd!
-"     " enable ncm2 for all buffers
-"     autocmd BufEnter * call ncm2#enable_for_buffer()
-"     " :help Ncm2PopupOpen for more information
-"     set completeopt=noinsert,menuone,noselect
-"     " When the <Enter> key is pressed while the popup menu is visible, it only
-"     " hides the menu. Use this mapping to close the menu and also start a new line.
-"     inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-"     " uncomment this block if you use vimtex for LaTex
-"     " autocmd Filetype tex call ncm2#register_source({
-"     "           \ 'name': 'vimtex',
-"     "           \ 'priority': 8,
-"     "           \ 'scope': ['tex'],
-"     "           \ 'mark': 'tex',
-"     "           \ 'word_pattern': '\w+',
-"     "           \ 'complete_pattern': g:vimtex#re#ncm2,
-"     "           \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-"     "           \ })
-" augroup END
 " Ale
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = {'python': ['flake8']}
+" let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_echo_msg_error_str = 'E'
+" let g:ale_echo_msg_warning_str = 'W'
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" let g:ale_linters = {'python': ['flake8']}
 " Airline
 let g:airline_left_sep  = ''
 let g:airline_right_sep = ''
