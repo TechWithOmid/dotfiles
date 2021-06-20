@@ -229,7 +229,7 @@ bindsym $mod+r mode "resize"
 #
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-fill /home/omid/Pictures/wallpaper/girl_landscape_art_139823_3840x2160.jpg 
+exec_always --no-startup-id feh --bg-fill /home/omid/Pictures/Wallpapers/girl_landscape_art_139823_3840x2160.jpg 
 
 # wifi
 exec --no-startup-id nm-applet
@@ -260,7 +260,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # run compton in startup
-exec --no-startup-id compton
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # toggle touchpad
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -268,6 +268,8 @@ bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 # polybar lounch script
 exec --no-startup-id bash ~/.config/polybar/launch.sh --forest
 
-# shortcut for run telegram
-bindsym $mod+t exec /home/omid/Downloads/Telegram/Telegram ; exec notify-send 'Telegram runing...'
+# shortcut for run programs
+bindsym $mod+t exec  telegram-desktop ; exec notify-send 'Telegram runing...'
+bindsym $mod+c exec  google-chrome-stable ; exec notify-send 'Chrome runing...'
+bindsym $mod+m exec  spotify ; exec notify-send 'Spotify runing...'
 
