@@ -9,7 +9,8 @@ exec --no-startup-id feh --bg-fill --randomize ~/Pictures/Wallpapers/*
 exec_always --no-startup-id autotiling
 
 # polybar 
-exec --no-startup-id bash ~/.config/polybar/launch.sh --blocks
+exec --no-startup-id bash ~/.config/polybar/launch.sh --grayblocks
+
 
 # #---Basic Definitions---# #
 # smart_gaps on
@@ -100,7 +101,8 @@ bindsym $mod+Shift+a		exec $term -e alsamixer
 bindsym $mod+s			gaps inner current plus 5
 bindsym $mod+Shift+s		gaps inner current minus 5
 
-bindsym $mod+d 			exec --no-startup-id rofi -show drun -theme arthur
+# bindsym $mod+d 			exec --no-startup-id rofi -show drun 
+bindsym $mod+d          exec --no-startup-id ~/.config/polybar/grayblocks/scripts/launcher.sh
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 bindsym $mod+f			fullscreen toggle
@@ -127,7 +129,7 @@ bindsym $mod+z			gaps outer current plus 5
 bindsym $mod+Shift+z		gaps outer current minus 5
 
 bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -e -f -c 1d2021 ; exec --no-startup-id xset dpms force off
-bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
+bindsym $mod+Shift+x		exec --no-startup-id ~/.config/polybar/grayblocks/scripts/powermenu.sh &
 
 bindsym $mod+c			exec --no-startup-id picom -b 
 bindsym $mod+Shift+c		exec --no-startup-id killall picom
