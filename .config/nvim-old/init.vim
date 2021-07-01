@@ -161,4 +161,4 @@ function! Toggle_Colorscheme()
         set backround=dark
         hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg 
     endif
-endfunctiong
+endfunction
