@@ -58,7 +58,7 @@ for_window [instance="dropdown_*"] move position center
 
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec alacritty
-bindsym $mod+Shift+Return	exec --no-startup-id alacritty --working-directory  $(xcwd)
+bindsym $mod+Shift+Return	exec --no-startup-id alacritty --working-directory  $(term)
 
 #bindsym $mod+space		focus mode_toggle
 
@@ -179,6 +179,7 @@ assign [class="obs"] $ws10
 assign [class="discord"] $ws6
 for_window [class="Spotify"] move to workspace $ws10
 for_window [title=".*Emulator.*"] floating enable
+for_window [title="Picture-in-Picture"] sticky enable
 
 # switch to workspace
 bindsym $mod+1		workspace $ws1
