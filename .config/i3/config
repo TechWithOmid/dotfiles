@@ -76,13 +76,13 @@ bindsym $mod+w 			exec --no-startup-id firefox
 bindsym $mod+Shift+w		exec $term -e nmtui
 
 bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
-bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
+bindsym $mod+Shift+e		exec --no-startup-id  nautilus /home/omid
 
 bindsym $mod+r 			exec $term -e ranger
 bindsym $mod+Shift+r		exec --no-startup-id winresize
 
 bindsym $mod+t			exec --no-startup-id  telegram-desktop
-bindsym $mod+Shift+t		gaps inner current set $inner_gaps; gaps outer current set $outer_gaps
+bindsym $mod+Shift+t	exec $term -e tmux	
 
 bindsym $mod+y			exec --no-startup-id flameshot gui -p ~/Pictures/screenshots
 bindsym $mod+Shift+y		exec --no-startup-id flameshot full -p ~/Pictures/screenshots
