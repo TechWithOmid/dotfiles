@@ -180,6 +180,7 @@ set $ws10 "10"
 
 # Assign Workspaces:
 assign [class="firefox"] $ws2
+assign [class="chrome"] $ws2
 assign [class="obs"] $ws10
 assign [class="discord"] $ws6
 for_window [class="Spotify"] move to workspace $ws10

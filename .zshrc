@@ -108,6 +108,8 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color
 alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias open='xdg-open'
+alias 'unplugM'='xrandr --output VGA-1 --off'
+alias 'plugM'='xrandr --output VGA-1 --auto --left-of LVDS-1'
 alias vim='nvim'
 
 # >>> conda initialize >>>
