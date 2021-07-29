@@ -70,7 +70,8 @@ bindsym $mod+Shift+BackSpace	exec --no-startup-id prompt "Reboot computer?" "$re
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
 
-bindsym $mod+w 			exec --no-startup-id firefox
+# bindsym $mod+w 			exec --no-startup-id firefox
+bindsym $mod+w 			exec --no-startup-id google-chrome-stable
 bindsym $mod+Shift+w		exec $term -e nmtui
 
 bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
