@@ -17,7 +17,7 @@ exec --no-startup-id bash ~/.config/polybar/launch.sh --blocks
 smart_borders on
 set $inner_gaps 5
 set $outer_gaps 8
-set $term --no-startup-id alacritty
+set $term --no-startup-id kitty
 set $mod Mod4
 set $stoprec --no-startup-id dmenurecord kill
 set $shutdown sudo -A shutdown -h now
@@ -57,8 +57,7 @@ for_window [instance="dropdown_*"] move position center
 
 
 # #---Basic Bindings---# #
-bindsym $mod+Return 		exec alacritty
-bindsym $mod+Shift+Return	exec --no-startup-id alacritty --working-directory  $(term)
+bindsym $mod+Return 		exec kitty
 bindsym $mod+space		focus mode_toggle
 bindsym $mod+Escape 	floating toggle
 bindsym $mod+Shift+Escape	exec --no-startup-id dm-tool switch-to-greeter
