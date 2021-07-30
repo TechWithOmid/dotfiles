@@ -111,6 +111,11 @@ alias open='xdg-open'
 alias 'unplugM'='xrandr --output VGA-1 --off'
 alias 'plugM'='xrandr --output VGA-1 --auto --left-of LVDS-1'
 alias vim='nvim'
+alias kgruvbox='kitty @ set-colors -a .config/kitty/gruvbox.conf'
+alias ksnnazy='kitty @ set-colors -a .config/kitty/snnazy.conf'
+alias klight='kitty @ set-colors -a .config/kitty/material.conf'
+alias ll='exa -l'
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
