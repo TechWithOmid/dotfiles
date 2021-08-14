@@ -118,7 +118,6 @@ alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias open='xdg-open'
 alias unplugM='xrandr --output VGA-1 --off'
 alias plugM='xrandr --output LVDS-1 --auto --left-of VGA-1'
-alias vim='nvim'
 alias kgruvbox='kitty @ set-colors -a .config/kitty/gruvbox.conf'
 alias ksnnazy='kitty @ set-colors -a .config/kitty/snnazy.conf'
 alias klight='kitty @ set-colors -a .config/kitty/material.conf'
@@ -142,3 +141,11 @@ unset __conda_setup
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$PATH:$HOME/.npm/bin"
