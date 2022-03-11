@@ -2,8 +2,16 @@ call plug#begin()
     " Pywal integration
     Plug 'dylanaraps/wal.vim'
 
+    " Markdown preview
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+
     " Tree expolrer
     Plug 'preservim/nerdtree'
+    
+    " Goyo (zen mode)
+    " enable with :Goyo disable by :Goyo!
+    Plug 'junegunn/goyo.vim'
     
     " Airline
     Plug 'vim-airline/vim-airline'
@@ -24,9 +32,12 @@ set laststatus=2        " always show statusline
 set ruler               " show line and column number of the cursor on right side of statusline
 set visualbell          " blink cursor on error, instead of beeping
 set autoread           " autoreload the file in Vim if it has been changed outside of Vim
+set formatoptions-=cro
+" set cursorline         " highlight current line
+
+
 syntax enable
 filetype plugin indent on
-" set cursorline         " highlight current line
 
 
 """" Key Bindings
@@ -41,6 +52,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
+nmap <leader>f :Goyo<CR>
+nmap <leader>m :MarkdownPreview<CR>
+" nmap <leader>f :Goyo!<CR>
 
 """" Vim Appearance
 colorscheme wal
@@ -56,9 +70,36 @@ set smartindent         " even better autoindent (e.g. add indent after '{')
 
 
 """" Search settings
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
+set is             " highlight on search
+set hls            " highlight matches
 
 """" Airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+"""" Goyo settings
+" basicly hide the tmux status bar when in goyo mode
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    " silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z "
+    " this will full screen the pan
+  endif
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+    " silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  set showmode
+  set showcmd
+  set scrolloff=5
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+  
