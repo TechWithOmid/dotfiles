@@ -40,7 +40,7 @@ height = 27
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
-fixed-center = false
+
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -52,7 +52,7 @@ border-size = 4
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 13
 
 module-margin-left = 1
 module-margin-right = 2
@@ -67,6 +67,8 @@ modules-right = pulseaudio xkeyboard memory cpu wlan eth battery date powermenu
 
 tray-position = right
 tray-padding = 2
+tray-detached = true
+tray-offset-x = -4
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm

@@ -13,10 +13,6 @@ call plug#begin()
     " enable with :Goyo disable by :Goyo!
     Plug 'junegunn/goyo.vim'
     
-    " Airline
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-
 call plug#end()
 
 
@@ -72,10 +68,6 @@ set smartindent         " even better autoindent (e.g. add indent after '{')
 """" Search settings
 set is             " highlight on search
 set hls            " highlight matches
-
-"""" Airline settings
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
 
 """" Goyo settings
 " basicly hide the tmux status bar when in goyo mode
