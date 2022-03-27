@@ -48,9 +48,7 @@ client.background       #ffffff
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
 for_window [instance="dropdown_*"] floating enable
-for_window [instance="dropdown_*"] move scratchpad
 for_window [instance="dropdown_*"] sticky enable
-for_window [instance="dropdown_*"] scratchpad show
 for_window [instance="dropdown_tmuxdd"] resize set 625 450
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300
 for_window [instance="dropdown_tmuxdd"] border pixel 3
@@ -240,6 +238,10 @@ bindsym $mod+Shift+8	move container to workspace $ws8
 bindsym $mod+Shift+9	move container to workspace $ws9
 bindsym $mod+Shift+0	move container to workspace $ws10
 
+# hide container in scratchpad
+bindsym $mod+minus       move scratchpad
+bindsym $mod+Shift+minus scratchpad show
+
 for_window [class="Pinentry"] sticky enable
 for_window [class="sent"] border pixel 0px
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
@@ -285,8 +287,8 @@ bindsym $mod+Ctrl+Right		move workspace to output left
 # Volume keys
 bindsym $mod+plus		exec --no-startup-id lmc up
 bindsym $mod+Shift+plus		exec --no-startup-id lmc up 15
-bindsym $mod+minus 		exec --no-startup-id lmc down
-bindsym $mod+Shift+minus	exec --no-startup-id lmc down 15
+#bindsym $mod+minus 		exec --no-startup-id lmc down
+#bindsym $mod+Shift+minus	exec --no-startup-id lmc down 15
 bindsym $mod+less 		exec --no-startup-id mpc prev
 bindsym $mod+Shift+less		exec --no-startup-id mpc seek 0%
 bindsym $mod+greater		exec --no-startup-id mpc next

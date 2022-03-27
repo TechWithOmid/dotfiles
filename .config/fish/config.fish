@@ -16,6 +16,9 @@ alias lla "ll -a"
 alias nv "nvim"
 alias v "vim"
 
+alias ntd "nv ~/Documents/todo.md"
+alias gtd "glow ~/Documents/todo.md"
+
 alias w "wal -q -i ~/Pictures/Wallpapers/"
 
 # dotfiles alias
