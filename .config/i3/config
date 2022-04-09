@@ -4,17 +4,18 @@
 # You can set these variables in ~/.profile or ~/.bash_profile if you have it as below:
 
 exec_always --no-startup-id 	autotiling
-exec_always --no-startup-id     $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id     picom --config ~/.config/picom/picom.conf --experimental-backends
 exec --no-startup-id 	    	nm-applet
 exec --no-startup-id 	    	blueman-applet 
 exec --no-startup-id 	    	i3-battery-popup -L 15
+exec_always --no-startup-id     $HOME/.config/polybar/launch.sh
 exec --no-startup-id 	    	wal -q -i ~/Pictures/Wallpapers/
+exec_always --no-startup-id     ./.config/xborder/xborders --border-width 3
 
 
 # #---Basic Definitions---# #
 # smart_gaps on
-smart_borders on
+#smart_borders on
 set $inner_gaps 7
 set $outer_gaps 10
 set $term --no-startup-id kitty
@@ -31,7 +32,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # #---Gaps---# #
-for_window [class="^.*"] border pixel 2
+#for_window [class="^.*"] border pixel 2
 gaps inner $inner_gaps
 gaps outer $outer_gaps
 
@@ -302,6 +303,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 # keyboard layout
 exec_always setxkbmap -layout us,ir -option 'grp:alt_shift_toggle'
 
+# status bar
 # bar {
 # status_command i3status
 # strip_workspace_numbers yes
