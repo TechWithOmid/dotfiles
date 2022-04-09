@@ -15,7 +15,7 @@ exec_always --no-startup-id     ./.config/xborder/xborders --border-width 3
 
 # #---Basic Definitions---# #
 # smart_gaps on
-#smart_borders on
+smart_borders on
 set $inner_gaps 7
 set $outer_gaps 10
 set $term --no-startup-id kitty
@@ -32,7 +32,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # #---Gaps---# #
-#for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 gaps inner $inner_gaps
 gaps outer $outer_gaps
 
