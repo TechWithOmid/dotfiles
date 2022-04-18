@@ -1,30 +1,26 @@
 # vim: filetype=i3config
 
-# This config file will use environmental variables such as $BROWSER and $TERMINAL.
-# You can set these variables in ~/.profile or ~/.bash_profile if you have it as below:
-
 exec_always --no-startup-id 	autotiling
 exec_always --no-startup-id     picom --config ~/.config/picom/picom.conf --experimental-backends
 exec --no-startup-id 	    	nm-applet
 exec --no-startup-id 	    	blueman-applet 
 exec --no-startup-id 	    	i3-battery-popup -L 15
-exec_always --no-startup-id     $HOME/.config/polybar/launch.sh
 exec --no-startup-id 	    	wal -q -i ~/Pictures/Wallpapers/
-exec_always --no-startup-id     ./.config/xborder/xborders --border-width 3
+#exec_always --no-startup-id     $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id     ./.config/xborder/xborders --border-width 3
 
 
 # #---Basic Definitions---# #
 # smart_gaps on
 smart_borders on
-set $inner_gaps 7
-set $outer_gaps 10
+set $inner_gaps 5
+set $outer_gaps 3
 set $term --no-startup-id kitty
 set $mod Mod4
-set $stoprec --no-startup-id dmenurecord kill
 set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
-set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
+set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 title_align center
 font pango:monospace 8
 
@@ -59,118 +55,108 @@ for_window [instance="dropdown_*"] move position center
 
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec --no-startup-id kitty
-bindsym $mod+Shift+Return 		exec --no-startup-id alacritty
+bindsym $mod+shift+Return   exec --no-startup-id alacritty -t 'alacritty-floating' # alacritty open in floating mode
 
-bindsym $mod+space		focus mode_toggle
+bindsym $mod+space		    focus mode_toggle
 bindsym $mod+Escape 		floating toggle
 
 # #---Letter Key Bindings---# #
-bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
+# bindsym $mod+i 		    	
+# bindsym $mod+Shift+i		
+# bindsym $mod+r		
+# bindsym $mod+Shift+r		
+# bindsym $mod+u
+# bindsym $mod+Shift+u
+# bindsym $mod+o
+# bindsym $mod+Shift+o
+# bindsym $mod+a
+# bindsym $mod+Shift+a
+#bindsym $mod+n		    	
+#bindsym $mod+Shift+n		
+
+# bindsym $mod+v
+# bindsym $mod+Shift+p
+# bindsym $mod+Shift+f
+# bindsym $mod+Shift+v
+# bindsym $mod+Shift+b	
+# bindsym $mod+Shift+m		
+
+bindsym $mod+q			    [con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
 
-#bindsym $mod+w 			exec --no-startup-id firefox
-bindsym $mod+w 			exec --no-startup-id google-chrome-stable
-bindsym $mod+Shift+w		exec $term -e nmtui
+bindsym $mod+w 		    	exec --no-startup-id firefox
+bindsym $mod+Shift+w 	    exec --no-startup-id google-chrome-stable
 
-# bindsym $mod+e			
+bindsym $mod+e			    exec --no-startup-id kitty -e ranger
 bindsym $mod+Shift+e		exec --no-startup-id  thunar /home/omid
 
-bindsym $mod+Shift+r		exec --no-startup-id winresize
-
-bindsym $mod+t			exec --no-startup-id  telegram-desktop
+bindsym $mod+t			    exec --no-startup-id  telegram-desktop
 bindsym $mod+Shift+t		exec $term -e tmux	
 
-bindsym $mod+y		exec --no-startup-id flameshot gui -p ~/Pictures/Screnshots/
-bindsym $mod+Shift+y		exec --no-startup-id flameshot full -p ~/Pictures/Screnshots/
-bindsym Print     		exec --no-startup-id flameshot full -p ~/Pictures/Screnshots/
-
-# bindsym Print 			exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date)"
-# bindsym $mod+Print 		exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshots/$(date)"
-# bindsym Shift+Print 		exec --no-startup-id maim --select "/home/$USER/Pictures/screenshots/$(date)"
-# 
-
-bindsym $mod+Shift+u		exec --no-startup-id i3resize down
-
-bindsym $mod+i 			exec $term -e gotop
-bindsym $mod+Shift+i		exec --no-startup-id i3resize up
-
-bindsym $mod+Shift+o		exec --no-startup-id i3resize right
-
-bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
-bindsym $mod+Shift+a		exec $term -e alsamixer
-
-bindsym $mod+s			gaps inner current plus 5
+bindsym $mod+s			    gaps inner current plus 5
 bindsym $mod+Shift+s		gaps inner current minus 5
 
-
-# Moving workspaces between screens 
-# bindsym $mod+d 			exec --no-startup-id dmenu_run
-bindsym $mod+d 			exec fish -c "rofi -show run"
+bindsym $mod+d 			    exec --no-startup-id dmenu_run
+# bindsym $mod+d 			exec fish -c "rofi -show run"
 
 # Switch to program
 bindsym $mod+p				exec rofi -show emoji -modi emoji
 # bindsym $mod+p 			move workspace to output right
 
+bindsym $mod+f			    fullscreen toggle
 
-bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
-bindsym $mod+f			fullscreen toggle
+bindsym $mod+Shift+x		exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock-fancy; exec --no-startup-id xset dpms force off
+bindsym $mod+x		        exec --no-startup-id bash ~/.config/i3/scripts/power-menu
 
-bindsym $mod+h			focus left
-bindsym $mod+Shift+h		move left 30
-bindsym $mod+Ctrl+h		move workspace to output left
+bindsym $mod+c	    		exec --no-startup-id picom
+bindsym $mod+Shift+c		exec --no-startup-id killall picom
 
-bindsym $mod+j			focus down
-bindsym $mod+Shift+j		move down 30
-bindsym $mod+Ctrl+j		move workspace to outpu down
-
-bindsym $mod+k			focus up
-bindsym $mod+Shift+k		move up 30
-bindsym $mod+Ctrl+k		move workspace to output up
-
-bindsym $mod+l			focus right
-bindsym $mod+Shift+l		move right 30
-bindsym $mod+Ctrl+l		move workspace to output right
+bindsym $mod+b	    		exec --no-startup-id wal -q -i ~/Pictures/Wallpapers/
 
 bindsym $mod+semicolon		sticky toggle;
 
-bindsym $mod+z			gaps outer current plus 5
+bindsym $mod+m  			exec --no-startup-id spotify
+
+bindsym $mod+y		        exec --no-startup-id flameshot gui -p ~/Pictures/Screnshots/
+bindsym $mod+Shift+y		exec --no-startup-id flameshot full -p ~/Pictures/Screnshots/
+bindsym Print     		    exec --no-startup-id flameshot full -p ~/Pictures/Screnshots/
+# bindsym Print 			exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date)"
+# bindsym $mod+Print 		exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshots/$(date)"
+# bindsym Shift+Print 		exec --no-startup-id maim --select "/home/$USER/Pictures/screenshots/$(date)"
+
+bindsym $mod+h			    focus left
+bindsym $mod+Shift+h		move left 30
+bindsym $mod+Ctrl+h	    	move workspace to output left
+
+bindsym $mod+j		    	focus down
+bindsym $mod+Shift+j		move down 30
+bindsym $mod+Ctrl+j	    	move workspace to outpu down
+
+bindsym $mod+k		    	focus up
+bindsym $mod+Shift+k		move up 30
+bindsym $mod+Ctrl+k	    	move workspace to output up
+
+bindsym $mod+l		    	focus right
+bindsym $mod+Shift+l		move right 30
+bindsym $mod+Ctrl+l	    	move workspace to output right
+
+bindsym $mod+z		    	gaps outer current plus 5
 bindsym $mod+Shift+z		gaps outer current minus 5
-
-bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock-fancy; exec --no-startup-id xset dpms force off
-# bindsym $mod+Shift+x		
-
-# Open clipboard
-bindsym $mod+Shift+c 		exec "rofi -modi 'clipboard:greenclip print' -show clipboard"
-# bindsym $mod+c			exec --no-startup-id picom
-# bindsym $mod+Shift+c		exec --no-startup-id killall picom
-
-
-bindsym $mod+v			exec --no-startup-id $term -e nvim
-#bindsym $mod+Shift+v
-
-bindsym $mod+b			exec --no-startup-id wal -q -i ~/Pictures/Wallpapers/
-bindsym $mod+Shift+b		sticky toggle;
-
-bindsym $mod+n			exec --no-startup-id kill -s USR1 $(pidof deadd-notification-center)
-bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover right
-
-bindsym $mod+m 			exec --no-startup-id spotify
-bindsym $mod+Shift+m		exec --no-startup-id lmc toggle
 
 # #---Workspace Bindings---# #
 bindsym $mod+Home		            workspace $ws1
-bindsym $mod+Shift+Home		      move container to workspace $ws1
+bindsym $mod+Shift+Home		        move container to workspace $ws1
 bindsym $mod+End		            workspace $ws10
-bindsym $mod+Shift+End		      move container to workspace $ws10
-bindsym $mod+Prior		          workspace prev
-bindsym $mod+Shift+Prior	      move container to workspace prev
+bindsym $mod+Shift+End		        move container to workspace $ws10
+bindsym $mod+Prior		            workspace prev
+bindsym $mod+Shift+Prior	        move container to workspace prev
 bindsym $mod+Tab		            exec --no-startup-id rofi -show window 
 # toggle tiling / floating
-bindsym $mod+Shift+Tab		      workspace prev
-bindsym $mod+apostrophe		      split horizontal ;; exec $term
-bindsym $mod+slash		          split vertical ;; exec $term
-bindsym $mod+Shift+slash	      kill
-bindsym $mod+backslash		      workspace back_and_forth
+bindsym $mod+Shift+Tab		        workspace prev
+bindsym $mod+apostrophe		        split horizontal ;; exec $term
+bindsym $mod+slash		            split vertical ;; exec $term
+bindsym $mod+Shift+slash	        kill
+bindsym $mod+backslash		        workspace back_and_forth
 
 # set $ws1 "1"
 # set $ws2 "2"
@@ -194,7 +180,6 @@ bindsym $mod+backslash		      workspace back_and_forth
 # set $ws9  "9:   Settings "
 # set $ws10 "10:  Music"
 
-
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
@@ -212,8 +197,8 @@ assign [class="chrome"] $ws2
 assign [class="obs"] $ws10
 assign [class="discord"] $ws6
 for_window [class="Spotify"] move to workspace $ws10
-for_window [title=".*Emulator.*"] floating enable
 for_window [title="Picture-in-Picture"] sticky enable
+for_window [title="^alacritty-floating$"] floating enable, move position center, resize set 700 400
 
 # switch to workspace
 bindsym $mod+1		workspace $ws1
@@ -304,10 +289,10 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 exec_always setxkbmap -layout us,ir -option 'grp:alt_shift_toggle'
 
 # status bar
-# bar {
-# status_command i3status
-# strip_workspace_numbers yes
-# position top
-# font pango:DejaVu Sans Mono 10
-# separator_symbol |
-# }
+bar {
+status_command i3status
+strip_workspace_numbers yes
+position top
+font pango:DejaVu Sans Mono 10
+separator_symbol |
+}

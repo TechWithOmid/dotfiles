@@ -9,10 +9,6 @@ set MANPATH $NPM_PACKAGES/share/man $MANPATH
 
 
 # alias
-alias ls="exa"
-alias lsa="exa --icons -a"
-alias ll="exa -l -g --icons"
-alias lla="ll -a"
 alias nv="nvim"
 alias v="vim"
 alias ntd="nv ~/Documents/todo.md"
