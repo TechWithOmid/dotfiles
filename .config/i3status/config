@@ -1,38 +1,43 @@
 general {
-    output_format = i3bar
-    #colors = true
-    color_good = "#50FA7B"
-    color_degraded = "#F1FA8C"
-    color_bad = "#FF5555"
+    output_format = "i3bar"
+    colors = false
+    markup = pango
     interval = 5
+    color_good = '#2f343f'
+	color_degraded = '#ebcb8b'
+	color_bad = '#ba5e57'
+
 }
 
-
 order += "memory"
-order += "wireless _first_"
-order += "ethernet _first_"
 order += "battery all"
 order += "volume all"
+order += "wireless _first_"
+order += "ethernet _first_"
 order += "tztime local"
 
 
+#load {
+#        format = "<span background='#f59335'>  %5min Load </span>"
+#}
+
 memory {
-    format = " 💿 %used "
+    format = "<span background='#ffb433'>💿 <span background='#e5e9f0'> %used </span></span>"
     threshold_degraded = "10%"
 }
 
 wireless _first_ {
-    format_up = "  %essid "
-    format_down = " ✖️ Down "
+    format_up = "<span background='#31b053'>  <span background='#e5e9f0'> %essid </span></span>"
+    format_down = "<span background='#bf626a'> ✖️ <span background='#e5e9f0'> Down </span></span>"
 }
 
 ethernet _first_ {
-    format_up =  "  %ip "
-    format_down = " ✖️ Down "
+    format_up =  "<span background='#31b053'>   <span background='#e5e9f0'> %ip </span</span>"
+    format_down = "<span background='#bf626a'> ✖️ <span background='#e5e9f0'> Down </span></span>"
 }
 
 battery all {
-    format = " %status %percentage "
+    format = "<span background='#a3be8c'> %status <span background='#e5e9f0'> %percentage </span></span>"
     status_chr = "⚡️ CHR"
     status_bat = " BAT"
     status_unk = "? UNK"
@@ -43,19 +48,13 @@ battery all {
 }
 
 volume all {
-    format = " 🔊 %volume "
-    format_muted = " 🔈 Muted "
+    format = "<span background='#ebcb8b'> 🔊 <span background='#e5e9f0'> %volume </span></span>"
+    format_muted = "<span background='ebcb8b'> 🔈 <span background='#e5e9f0'> Muted </span></span>"
     device = "default"
 }
 
-#tztime local {
-#    format = " 🕒 %time "
-#    format_time = "%d %B %Y %I:%M %p"
-#}
-
-
-
 tztime local {
-    format = "🕒%H:%M"
+    format = "<span background='#81a1c1'> 🕒 <span background='#e5e9f0'> %H:%M </span></span>"
+    #format_time = "%d %B %Y %I:%M %p"
 }
 

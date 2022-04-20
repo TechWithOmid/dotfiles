@@ -28,7 +28,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # #---Gaps---# #
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 gaps inner $inner_gaps
 gaps outer $outer_gaps
 
@@ -40,7 +40,6 @@ client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
-
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
@@ -78,7 +77,6 @@ bindsym $mod+Escape 		floating toggle
 # bindsym $mod+Shift+p
 # bindsym $mod+Shift+f
 # bindsym $mod+Shift+v
-# bindsym $mod+Shift+b	
 # bindsym $mod+Shift+m		
 
 bindsym $mod+q			    [con_id="__focused__" instance="^(?!dropdown_).*$"] kill
@@ -112,6 +110,7 @@ bindsym $mod+c	    		exec --no-startup-id picom
 bindsym $mod+Shift+c		exec --no-startup-id killall picom
 
 bindsym $mod+b	    		exec --no-startup-id wal -q -i ~/Pictures/Wallpapers/
+bindsym $mod+Shift+b	    exec --no-startup-id blueman-manager  # launch bluetooth manager
 
 bindsym $mod+semicolon		sticky toggle;
 
@@ -192,6 +191,7 @@ set $ws9 "9:"
 set $ws10 "10:"
 
 # Assign Workspaces:
+for_window [workspace="9"] floating enable
 assign [class="firefox"] $ws2
 assign [class="chrome"] $ws2
 assign [class="obs"] $ws10
@@ -199,6 +199,8 @@ assign [class="discord"] $ws6
 for_window [class="Spotify"] move to workspace $ws10
 for_window [title="Picture-in-Picture"] sticky enable
 for_window [title="^alacritty-floating$"] floating enable, move position center, resize set 700 400
+for_window [title="Local Services"] floating enable
+for_window [class="Blueman-manager"] floating enable
 
 # switch to workspace
 bindsym $mod+1		workspace $ws1
@@ -290,9 +292,22 @@ exec_always setxkbmap -layout us,ir -option 'grp:alt_shift_toggle'
 
 # status bar
 bar {
-status_command i3status
-strip_workspace_numbers yes
-position top
-font pango:DejaVu Sans Mono 10
-separator_symbol |
+    status_command i3status
+    strip_workspace_numbers yes
+    position top
+    font pango:DejaVu Sans Mono 10
+    #separator_symbol " "
+
+    colors {
+        background #2f343f
+        statusline #2f343f
+        separator #4b5262
+
+        # colour of border, background, and text
+        focused_workspace       #2f343f #bf616a #d8dee8
+        active_workspace        #2f343f #2f343f #d8dee8
+        inactive_workspace      #2f343f #2f343f #d8dee8
+        urgent_workspacei       #2f343f #ebcb8b #2f343f
+
+    }
 }
