@@ -8,6 +8,9 @@ call plug#begin()
 
     " Tree expolrer
     Plug 'preservim/nerdtree'
+
+    " TMux - vim navigation
+    Plug 'christoomey/vim-tmux-navigator'
     
 call plug#end()
 
