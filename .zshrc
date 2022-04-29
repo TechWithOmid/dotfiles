@@ -1,6 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 # ZSH_THEME="robbyrussell"
-plugins=(git sudo zsh-autosuggestions zsh-syntax-highlighting)
+# plugins=(git sudo zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git sudo)
 
 # npm config
 set NPM_PACKAGES "$HOME/.npm-packages"
@@ -18,6 +19,8 @@ alias w="wal -q -i"
 alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 source $ZSH/oh-my-zsh.sh
-export PATH=$PATH:/home/omid/.spicetify
 export PATH=$HOME/.local/bin:$PATH
 eval "$(starship init zsh)"
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

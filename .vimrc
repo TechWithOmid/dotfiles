@@ -1,7 +1,4 @@
 call plug#begin()
-    " Pywal integration
-    Plug 'dylanaraps/wal.vim'
-
     " Markdown preview
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
