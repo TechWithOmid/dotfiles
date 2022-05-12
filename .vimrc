@@ -2,7 +2,6 @@ call plug#begin()
     " Markdown preview
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-
     " Tree expolrer
     Plug 'preservim/nerdtree'
 
@@ -18,7 +17,6 @@ set nowrap              " don't wrap lines
 set encoding=utf-8      " set encoding to UTF-8 
 set mouse=a             " enable mouse support 
 set wildmenu            " visual autocomplete for command menu
-set lazyredraw          " redraw screen only when we need to
 set showmatch           " highlight matching parentheses / brackets [{()}]
 set laststatus=2        " always show statusline 
 set ruler               " show line and column number of the cursor on right side of statusline
@@ -46,10 +44,6 @@ nnoremap <C-l> <C-w>l
 nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
 nmap <leader>m :MarkdownPreview<CR>
-
-"""" Vim Appearance
-colorscheme wal
-
 
 """" Tab settings
 set tabstop=4           " width that a <TAB> character displays as

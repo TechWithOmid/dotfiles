@@ -14,7 +14,8 @@ alias nv="nvim"
 alias v="vim"
 alias ntd="nv ~/Documents/todo.md"
 alias gtd="glow ~/Documents/todo.md"
-alias w="wal -q -i"
+alias w="feh --bg-fill --randomize ~/Pictures/Wallpapers/"
+
 # dotfiles alias
 alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
