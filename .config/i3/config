@@ -10,6 +10,9 @@ exec_always --no-startup-id     feh --bg-fill --randomize ~/Pictures/Wallpapers/
 # exec --no-startup-id 	    	wal -q -i ~/Pictures/Wallpapers/
 # exec_always --no-startup-id     ./.config/xborder/xborders --border-width 3
 
+# start obsidian syncing
+exec_always --no-startup-id     /usr/bin/syncthing -no-browser -no-restart -logflags=0
+
 
 # #---Basic Definitions---# #
 # smart_gaps on
@@ -89,8 +92,8 @@ bindsys $mod+shift+l 	exec "i3-nagbar -t warning -m 'You pressed the exit shortc
 bindsym $mod+q			    [con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
 
-bindsym $mod+w 		    	exec --no-startup-id firefox
-bindsym $mod+Shift+w 	    exec --no-startup-id google-chrome-stable
+bindsym $mod+w 		    	exec --no-startup-id google-chrome-stable
+bindsym $mod+Shift+w 	    exec --no-startup-id firefox
 
 bindsym $mod+e			    exec --no-startup-id kitty -e ranger
 bindsym $mod+Shift+e		exec --no-startup-id  nautilus /home/omid
@@ -203,8 +206,8 @@ set $ws10 "10:"
 for_window [workspace="9"] floating enable
 assign [class="firefox"] $ws2
 assign [class="chrome"] $ws2
-assign [class="obs"] $ws10
 assign [class="discord"] $ws6
+assign [class="obsidian"] $ws5
 for_window [class="Spotify"] move to workspace $ws10
 for_window [title="Picture-in-Picture"] sticky enable
 for_window [title="^alacritty-floating$"] floating enable, move position center, resize set 700 400

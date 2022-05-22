@@ -12,15 +12,14 @@ set MANPATH $NPM_PACKAGES/share/man $MANPATH
 # alias
 alias nv="nvim"
 alias v="vim"
-alias ntd="nv ~/Documents/todo.md"
-alias gtd="glow ~/Documents/todo.md"
 alias w="feh --bg-fill --randomize ~/Pictures/Wallpapers/"
 
 # dotfiles alias
-alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias dot='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin/appimages:$PATH
 eval "$(starship init zsh)"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
