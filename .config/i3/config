@@ -5,8 +5,8 @@ exec_always --no-startup-id     picom --config ~/.config/picom/picom.conf --expe
 exec --no-startup-id            nm-applet
 exec --no-startup-id 	    	blueman-applet 
 exec_always --no-startup-id     feh --bg-fill --randomize ~/Pictures/Wallpapers/*
+exec_always --no-startup-id     bash ~/.config/polybar/launch.sh 
 # exec_always --no-startup-id     $HOME/.config/polybar/launch.sh
-# exec_always --no-startup-id     bash ~/.config/polybar/launch.sh --blocks
 # exec --no-startup-id 	    	wal -q -i ~/Pictures/Wallpapers/
 # exec_always --no-startup-id     ./.config/xborder/xborders --border-width 3
 
@@ -336,85 +336,10 @@ client.unfocused	    $darkblue	$darkblue	$grey		$purple		$darkgrey
 client.focused_inactive	$darkblue	$darkblue	$grey		$purple		$black
 client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
 
-############################################
-# bar settings (input comes from i3blocks) #
-############################################
-
-# Start i3bar to display a workspace bar
-# (plus the system information i3status finds out, if available)
 bar {
-		font pango:Noto Sans Regular 11, FontAwesome 11
-		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-		position top
-		height 30
-	    	i3bar_command i3bar --transparency
-# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
-# reference: https://i3wm.org/docs/userguide.html#_tray_output
-		    tray_output none
-		    tray_padding 1
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-strip_workspace_numbers yes
-##strip_workspace_name no
-
-		    colors {
-		    separator          $purple
-		    background         $darkgrey
-		    statusline         $white
-#                          		border 		        bg		txt		indicator
-		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
-		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
-		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
-	}
+    status_command i3status
+    strip_workspace_numbers yes
+    position top
+    font pango:DejaVu Sans Mono 12
+    separator_symbol |
 }
-
-# you can add different bars for multidisplay setups on each display:
-# set output HDMI-0 to the display you want the bar, --transparency can be set.
-# Transparency needs rgba color codes to be used where the last two letters are the transparency factor see here:
-# https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
-# #08052be6 --> e6=90%
-
-bar {
-   status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
-   height 30
- #  i3bar_command             i3bar -t
-   position top
-   mode hide
-   hidden_state hide
-   modifier Ctrl+Shift
-   tray_padding 3
-   tray_output primary
-   workspace_buttons no
-  colors {
-        statusline $white
-         background        "#131519"
-         }  
-}
-
-# bar {
-#	font pango:Noto Sans Regular 9, FontAwesome 9
-#	status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
-#	i3bar_command i3bar --transparency
-#	output HDMI-0
-#	position bottom
-#
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-#strip_workspace_numbers yes
-##strip_workspace_name no
-#
-#	colors {
-#		separator          $purple
-#		background         $darkbluetrans
-#        	statusline         $white
-#					border		bg		txt		indicator
-#		focused_workspace	$lighterblue	$lighterblue	$darkblue	$purple
-#		active_workspace	$lightdblue	$lightdblue	$darkblue	$purple
-#		inactive_workspace	$darkblue	$darkblue	$lightdblue	$purple
-#		urgent_workspace	$urgentred	$urgentred	$white		$purple
-#	}
-#}
-
