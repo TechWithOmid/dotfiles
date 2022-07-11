@@ -5,6 +5,9 @@ call plug#begin()
     " Tree expolrer
     Plug 'preservim/nerdtree'
 
+    " Dev Icon
+     Plug 'ryanoasis/vim-devicons'
+
     " TMux - vim navigation
     Plug 'christoomey/vim-tmux-navigator'
     

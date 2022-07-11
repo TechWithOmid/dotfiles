@@ -26,7 +26,7 @@ fi
 if [[ ! $(command -v ranger) ]]
 then
     sudo pacman -S ranger --noconfirm
-    yay -S python-ueberzug-git
+    yay -S python-ueberzug-git --noconfirm
 fi
 
 # Neovim dependency

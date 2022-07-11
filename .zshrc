@@ -93,9 +93,9 @@ compdef _directories md
 alias tree='tree -a -I .git'
 
 # npm config
-set NPM_PACKAGES "$HOME/.npm-packages"
-set PATH $PATH $NPM_PACKAGES/bin
-set MANPATH $NPM_PACKAGES/share/man $MANPATH  
+set NPM_PACKAGES="$HOME/.npm-packages"
+set PATH=$PATH $NPM_PACKAGES/bin
+set MANPATH=$NPM_PACKAGES/share/man $MANPATH  
 
 # alias
 alias nv="nvim"
@@ -108,3 +108,8 @@ alias dot='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
+export PATH=/home/omid/bin:/home/omid/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/omid/.cache/zsh4humans/v5/fzf/bin:/snap/bin:/home/omid/.npm/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
