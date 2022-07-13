@@ -5,11 +5,9 @@ exec_always --no-startup-id     picom --config ~/.config/picom/picom.conf --expe
 exec --no-startup-id            nm-applet
 exec --no-startup-id            xinput set-prop "AlpsPS/2 ALPS GlidePoint" "libinput Tapping Enabled" 1
 exec --no-startup-id 	    	blueman-applet 
-exec_always --no-startup-id     feh --bg-fill --randomize ~/Pictures/Wallpapers/*
-exec_always --no-startup-id     bash ~/.config/polybar/launch.sh 
-# exec_always --no-startup-id     $HOME/.config/polybar/launch.sh
+exec --no-startup-id            feh --bg-fill --randomize ~/Pictures/Wallpapers/*
+# exec_always --no-startup-id     bash ~/.config/polybar/launch.sh 
 # exec --no-startup-id 	    	wal -q -i ~/Pictures/Wallpapers/
-# exec_always --no-startup-id     ./.config/xborder/xborders --border-width 3
 
 # start obsidian syncing
 exec_always --no-startup-id     /usr/bin/syncthing -no-browser -no-restart -logflags=0
@@ -59,7 +57,8 @@ for_window [instance="dropdown_*"] move position center
 
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec --no-startup-id kitty
-bindsym $mod+shift+Return   exec --no-startup-id alacritty -t 'alacritty-floating' # alacritty open in floating mode
+# alacritty open in floating mode
+bindsym $mod+shift+Return   exec --no-startup-id alacritty -t 'alacritty-floating' -e tmux;
 
 bindsym $mod+space		    focus mode_toggle
 bindsym $mod+Escape 		floating toggle
@@ -97,7 +96,7 @@ bindsym $mod+w 		    	exec --no-startup-id google-chrome-stable
 bindsym $mod+Shift+w 	    exec --no-startup-id firefox
 
 bindsym $mod+e			    exec --no-startup-id kitty -e ranger
-bindsym $mod+Shift+e		exec --no-startup-id  nautilus /home/omid
+bindsym $mod+Shift+e		exec --no-startup-id  thunar /home/omid
 
 bindsym $mod+t			    exec --no-startup-id  telegram-desktop
 bindsym $mod+Shift+t		exec $term -e tmux	
@@ -211,7 +210,7 @@ assign [class="discord"] $ws6
 assign [class="obsidian"] $ws5
 for_window [class="Spotify"] move to workspace $ws10
 for_window [title="Picture-in-Picture"] sticky enable
-for_window [title="^alacritty-floating$"] floating enable, move position center, resize set 700 400
+for_window [title="^alacritty-floating$"] floating enable, resize set 800 400, position top
 for_window [title="Local Services"] floating enable
 for_window [title="^Sign in - Google Accounts - Google Chrome$"] floating enable
 for_window [class="Blueman-manager"] floating enable
@@ -258,6 +257,9 @@ for_window [title="mpvfloat"] floating enable
 for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
+
+# make all off jetbrain ide splash floating
+for_window [class="jetbrains-.*" title="win0"] floating enable border none
 
 
 # #---Function Buttons---# #
