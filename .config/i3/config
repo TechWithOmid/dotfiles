@@ -258,8 +258,11 @@ for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
-# make all off jetbrain ide splash floating
+# enable floating for jetbrains splash screen
 for_window [class="jetbrains-.*" title="win0"] floating enable border none
+
+# enable floating for android-emulator
+for_window [title="Android Emulator -*"] floating enable border pixel 0
 
 
 # #---Function Buttons---# #
