@@ -21,7 +21,7 @@ alias dot='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.local/bin/appimages:$PATH
-source /home/omid/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /home/omid/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

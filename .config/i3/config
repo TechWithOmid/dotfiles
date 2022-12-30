@@ -5,8 +5,8 @@ exec_always --no-startup-id     picom --config ~/.config/picom/picom.conf --expe
 exec --no-startup-id            nm-applet
 exec --no-startup-id            xinput set-prop "AlpsPS/2 ALPS GlidePoint" "libinput Tapping Enabled" 1
 exec --no-startup-id 	    	blueman-applet 
-exec --no-startup-id            feh --bg-fill --randomize ~/Pictures/Wallpapers/*
-# exec_always --no-startup-id     bash ~/.config/polybar/launch.sh 
+exec --no-startup-id            feh --bg-fill --randomize ~/Pictures/wallpapers/*
+exec_always --no-startup-id     bash ~/.config/polybar/launch.sh --blocks
 # exec --no-startup-id 	    	wal -q -i ~/Pictures/Wallpapers/
 
 # start obsidian syncing
@@ -342,11 +342,11 @@ client.unfocused	    $darkblue	$darkblue	$grey		$purple		$darkgrey
 client.focused_inactive	$darkblue	$darkblue	$grey		$purple		$black
 client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
 
-bar {
-    status_command i3status
-    strip_workspace_numbers yes
-    position top
-    font pango:DejaVu Sans Mono 12
-    separator_symbol |
-}
-
+# bar {
+#     status_command i3status
+#     strip_workspace_numbers yes
+#     position top
+#     font pango:DejaVu Sans Mono 12
+#     separator_symbol |
+# }
+# 
