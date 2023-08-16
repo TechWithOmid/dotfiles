@@ -1,62 +1,89 @@
-call plug#begin()
-    " Markdown preview
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Enable Syntax Coloring
+syntax on
 
-    " Tree expolrer
-    Plug 'preservim/nerdtree'
+" Show Line Numbers
+set number
+highlight LineNr ctermfg=white
 
-    " Dev Icon
-     Plug 'ryanoasis/vim-devicons'
+" Show Matching Brackets 
+set showmatch
 
-    " TMux - vim navigation
-    Plug 'christoomey/vim-tmux-navigator'
-    
-call plug#end()
+" Search Settings
+set hlsearch
+set smartcase
+set ignorecase
+set incsearch
 
+" Indentation
+set autoindent
+set expandtab
+set shiftwidth=4
+set smartindent
+set smarttab
+set softtabstop=4
 
-"""" Basic Behavior
-set number              " show line numbers
-set nowrap              " don't wrap lines
-set encoding=utf-8      " set encoding to UTF-8 
-set mouse=a             " enable mouse support 
-set wildmenu            " visual autocomplete for command menu
-set showmatch           " highlight matching parentheses / brackets [{()}]
-set laststatus=2        " always show statusline 
-set ruler               " show line and column number of the cursor on right side of statusline
-set visualbell          " blink cursor on error, instead of beeping
-set autoread           " autoreload the file in Vim if it has been changed outside of Vim
-set formatoptions-=cro
-set clipboard=unnamed
-" set cursorline         " highlight current line
+" Display 5 lines above/below when scrolling
+set scrolloff=5
 
+" Fix common backspace problems
+set backspace=indent,eol,start
 
-syntax enable
-filetype plugin indent on
+set modelines=0
 
+" Encoding
+set encoding=utf-8
 
-"""" Key Bindings
-let mapleader = " "
-nmap j gj
-nmap k gk
-nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <CR> :nohlsearch<CR><CR>
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <Tab> :tabn<CR>
-nnoremap <S-Tab> :tabp<CR>
-nmap <leader>m :MarkdownPreview<CR>
+" Status Line Display
+set laststatus=2
+hi StatusLine ctermfg=NONE ctermbg=red cterm=NONE
+hi StatusLineNC ctermfg=black ctermbg=red cterm=NONE
+hi User1 ctermfg=black ctermbg=magenta
+hi User2 ctermfg=NONE ctermbg=NONE
+hi User3 ctermfg=black ctermbg=blue
+hi User4 ctermfg=black ctermbg=cyan
+set statusline=\                    " Padding
+set statusline+=%f                  " Path to the file
+set statusline+=\ %1*\              " Padding & switch colour
+set statusline+=%y                  " File type
+set statusline+=\ %2*\              " Padding & switch colour
+set statusline+=%=                  " Switch to right-side
+set statusline+=\ %3*\              " Padding & switch colour
+set statusline+=line                " of Text
+set statusline+=\                   " Padding
+set statusline+=%l                  " Current line
+set statusline+=\ %4*\              " Padding & switch colour
+set statusline+=of                  " of Text
+set statusline+=\                   " Padding
+set statusline+=%L                  " Total line
+set statusline+=\                   " Padding
 
-"""" Tab settings
-set tabstop=4           " width that a <TAB> character displays as
-set expandtab           " convert <TAB> key-presses to spaces
-set shiftwidth=4        " number of spaces to use for each step of (auto)indent
-set softtabstop=4       " backspace after pressing <TAB> will remove up to this many spaces
-set autoindent          " copy indent from current line when starting a new line
-set smartindent         " even better autoindent (e.g. add indent after '{')
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
 
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-"""" Search settings
-set is             " highlight on search
-set hls            " highlight matches
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
